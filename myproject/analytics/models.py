@@ -7,7 +7,7 @@ class Ratings(models.Model):
     rating=models.DecimalField(max_length=2)
     rating_timestamp=models.DateTimeField()
     time= models.CharField(max_length=8, default='explicit')
-    
+
     def __str__(self) -> str:
         return "user_id: {}, movie_id: {}, rating: {}, type: {}"\
             .format(self.user_id, self.movie_id, self.rating, self.type)
