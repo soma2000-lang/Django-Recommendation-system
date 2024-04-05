@@ -9,11 +9,15 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
+
 class Movie(models.Model):
     movie_id = models.CharField(max_length=16, unique=True, primary_key=True)
     title = models.CharField(max_length=512)
     year = models.IntegerField(null=True)
-    genres = models.ManyToManyField(Genre, related_name='movies', db_table='movie_genre')
+    genres = models.ManyToManyField(
+        Genre, related_name="movies", db_table="movie_genre"
+    )
 
     def __str__(self):
         return self.title

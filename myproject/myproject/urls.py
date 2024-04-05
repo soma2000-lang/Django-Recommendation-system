@@ -14,9 +14,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.conf.urls import url, include
 from django.contrib import admin
-from django.urls import path
+from moviegeeks import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+     url(r'^$', views.index, name='index'),
+    url(r'^movies/', include('moviegeeks.urls')),
+    url(r'^collect/', include('collector.urls')),
+    url(r'^analytics/', include('analytics.urls')),
+    url(r'^admin/', admin.site.urls),
+    url(r'^rec/', include('recommender.urls'))
 ]
+"""prs_project URL Configuration"""
+from django.conf.urls import url, include
+from django.contrib import admin
+from moviegeeks import views
+
