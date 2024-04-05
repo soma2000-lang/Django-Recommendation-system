@@ -73,7 +73,7 @@ def has_support(perm, one_itemsets):
     return frozenset({perm[0]}) in one_itemsets and \
            frozenset({perm[1]}) in one_itemsets
 def save_rules(rules):
-    
+
     for rule in rules:
         SeededRecs(
             created=rule[0],

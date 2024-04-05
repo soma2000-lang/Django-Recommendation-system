@@ -45,3 +45,10 @@ class BayesianPersonalizationRanking(object):
         self.user_movies = train_data.groupby('user_id')['movie_id'].apply(lambda x: x.tolist()).to_dict()
         self.item_bias = defaultdict(lambda: 0)
         self.create_loss_samples()
+    def build(self, ratings, params):
+    
+        if params:
+            k = params['k']
+            num_iterations = params['num_iterations']
+
+        self.train(ratings, k, num_iterations)
