@@ -1,1 +1,1 @@
-# Django-Recommendatio-system
+# Django-Recommendation system
