@@ -14,10 +14,7 @@ from recommenders.models import SeededRecs
 from rec.bpr_recommender import BPRRecs
 from rec.content_based_recommender import ContentBasedRecs
 from rec.funksvd_recommender import FunkSVDRecs
-from rec.fwls_recommender import FeatureWeightedLinearStacking
-from rec.neighborhood_based_recommender import NeighborhoodBasedRecs
-from rec.popularity_recommender import PopularityBasedRecs
-
+f
 def association_rules(request, content_id, take=6):
     data = SeededRecs.objects.filter(source=content_id) \
                .order_by('-confidence') \
@@ -158,23 +155,10 @@ def recs_bpr(request, user_id, num=6):
         'data': sorted_items
     }
     return JsonResponse(data, safe=False)
-def recs_cf(request, user_id, num=6):
-    min_sim = request.GET.get('min_sim', 0.1)
-    sorted_items = NeighborhoodBasedRecs(min_sim=min_sim).recommend_items(user_id, num)
 
-    print(f"cf sorted_items is: {sorted_items}")
-    data = {
-        'user_id': user_id,
-        'data': sorted_items
-    }
 
     return JsonResponse(data, safe=False)
-def recs_pop(request, user_id, num=60):
-    top_num = PopularityBasedRecs().recommend_items(user_id, num)
-    data = {
-        'user_id': user_id,
-        'data': top_num[:num]
-    }
+
 
     return JsonResponse(data, safe=False)
 def lda2array(lda_vector, len):

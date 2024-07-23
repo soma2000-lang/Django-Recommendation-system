@@ -20,10 +20,8 @@ urlpatterns = [
         views.recs_cf, name='recs_cb'),
     url(r'^funk/user/(?P<user_id>\w+)/$',
         views.recs_funksvd, name='recs_funksvd'),
-    url(r'^fwls/user/(?P<user_id>\w+)/$',
-        views.recs_fwls, name='recs_fwls'),
+   
     url(r'^bpr/user/(?P<user_id>\w+)/$',
         views.recs_bpr, name='recs_fwls'),
-    url(r'^pop/user/(?P<user_id>\w+)/$',
-        views.recs_pop, name='recs_pop')
+  
 ]
