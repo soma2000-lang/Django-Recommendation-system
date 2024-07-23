@@ -8,8 +8,8 @@ from itertools import combinations
 from datetime import datetime
 
 
-from collector.models import Log
-from recommender.models import SeededRecs
+from collect.models import Log
+from reccommenders.models import SeededRecs
 def build_association_rules():
     data = retrieve_buy_events()
     data = generate_transactions(data)

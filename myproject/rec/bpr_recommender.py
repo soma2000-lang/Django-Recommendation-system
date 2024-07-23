@@ -6,7 +6,7 @@ import pandas as pd
 from django.db.models import Avg
 
 from analytics.models import Rating
-from recs.base_recommender import base_recommender
+from rec.base_recommender import base_recommender
 class BPRRecs(base_recommender):
     def __init__(self, save_path='./models/bpr/'):
         self.save_path = save_path

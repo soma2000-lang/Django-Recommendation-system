@@ -10,8 +10,8 @@ from django.db import connection
 from django.db import Count
 from django.http import JsonResponse
 from gensim import models
-from moviegeeks.models import Movie, Genre
-from recommender.models import SeededRecs, Similarity
+from movielovers.models import Movie, Genre
+from reccommenders.models import SeededRecs, Similarity
 
 
 def index(request):
